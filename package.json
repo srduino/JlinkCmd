@@ -1,0 +1,83 @@
+{
+  "name": "jlinkcmd",
+  "displayName": "jlinkcmd",
+  "description": "一个简单的JLink控制器，提供运行、暂停和重置控制。",
+  "author": "Srduino",
+  "version": "0.0.1",
+  "icon": "icon.png",
+  "license": "Apache-2.0",
+  "private": "true",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/jlinkcmd.ini"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jlink.connect",
+        "title": "J-Link: Connect"
+      },
+      {
+        "command": "jlink.disconnect",
+        "title": "J-Link: Disconnect"
+      },
+      {
+        "command": "jlink.reset",
+        "title": "J-Link: Reset"
+      },
+      {
+        "command": "jlink.pause",
+        "title": "J-Link: Pause"
+      },
+      {
+        "command": "jlink.run",
+        "title": "J-Link: Run"
+      }
+    ],
+    "configuration": {
+      "title": "J-Link Settings",
+      "properties": {
+        "jlink.path": {
+          "type": "string",
+          "default": "JLink",
+          "description": "J-Link 可执行文件路径"
+        },
+        "jlink.device": {
+          "type": "string",
+          "default": "STM32F103C8",
+          "description": "Target device name"
+        },
+        "jlink.speed": {
+          "type": "number",
+          "default": 4000,
+          "description": "Interface speed in kHz"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}

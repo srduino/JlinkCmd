@@ -1,2 +1,1 @@
-# JlinkCmd
-A simple JLink controller that provides control for running, pausing, and resetting.
+这是一个简单的JLink控制器，允许操作重置、暂停和运行！
